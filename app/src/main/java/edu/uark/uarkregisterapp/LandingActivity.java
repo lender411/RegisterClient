@@ -15,16 +15,16 @@ public class LandingActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_landing);
 	}
 
-	public void displayAllProductsButtonOnClick(View view) {
-		this.startActivity(new Intent(getApplicationContext(), ProductsListingActivity.class));
+	public void displayAllEmployeesButtonOnClick(View view) {
+		this.startActivity(new Intent(getApplicationContext(), EmployeesListingActivity.class));
 	}
 
-	public void createProductButtonOnClick(View view) {
-		Intent intent = new Intent(getApplicationContext(), ProductViewActivity.class);
+	public void createEmployeeButtonOnClick(View view) {
+		Intent intent = new Intent(getApplicationContext(), EmployeesViewActivity.class);
 
 		intent.putExtra(
 			getString(R.string.intent_extra_product),
-			new ProductTransition()
+			new EmployeeTransition()
 		);
 
 		this.startActivity(intent);

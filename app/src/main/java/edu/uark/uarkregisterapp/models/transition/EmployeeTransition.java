@@ -1,0 +1,83 @@
+package edu.uark.uarkregisterapp.models.transition;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Date;
+import java.util.UUID;
+
+import edu.uark.uarkregisterapp.commands.converters.ByteToUUIDConverterCommand;
+import edu.uark.uarkregisterapp.commands.converters.UUIDToByteConverterCommand;
+import edu.uark.uarkregisterapp.models.api.Product;
+
+public class EmployeeTransition implements Parcelable {
+	private EmployeeID id;
+	public EmployeeID getId() {
+		return this.id;
+	}
+	public EmployeeTransition setId(EmployeID id) {
+		this.id = id;
+		return this;
+	}
+
+	private String recordID;
+	public String getLookupCode() {
+		return this.lookupCode;
+	}
+	public ProductTransition setLookupCode(String lookupCode) {
+		this.lookupCode = lookupCode;
+		return this;
+	}
+
+	private Date createdOn;
+	public Date getCreatedOn() {
+		return this.createdOn;
+	}
+	public ProductTransition setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+		return this;
+	}
+
+	@Override
+	public void writeToParcel(Parcel destination, int flags) {
+		destination.writeByteArray((new EmployeeIDToByteConverterCommand()).setValueToConvert(this.id).execute());
+		destination.writeString(this.RecordID);
+		destination.writeLong(this.createdOn.getTime());
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	public static final Parcelable.Creator<EmployeeTransition> CREATOR = new Parcelable.Creator<EmployeeTransition>() {
+		public EmployeeTransition createFromParcel(Parcel employeeTransitionParcel) {
+			return new EmployeeTransition(employeeTransitionParcel);
+		}
+
+		public EmployeeTransition[] newArray(int size) {
+			return new EmployeeTransition[size];
+		}
+	};
+
+	public EmployeeTransition() {
+		this.id = new EmployeeID(0, 0);
+		this.createdOn = new Date();
+		this.recordID = StringUtils.EMPTY;
+	}
+
+	public EmployeeTransition(Employee employee) {
+		this.id = employee.getEmployeeId();
+		this.createdOn = employee.getCreatedOn();
+		this.recordID = employee.getRecordID();
+	}
+
+	private EmployeeTransition(Parcel employeeTransitionParcel) {
+		this.id = (new ByteToEmployeeIDConverterCommand()).setValueToConvert(employeeTransitionParcel.createByteArray()).execute();
+		this.recordID = employeeTransitionParcel.readString();
+		this.createdOn = new Date();
+		this.createdOn.setTime(employeeTransitionParcel.readLong());
+	}
+}
