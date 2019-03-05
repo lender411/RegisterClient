@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Locale;
 
 import edu.uark.uarkregisterapp.R;
 import edu.uark.uarkregisterapp.models.api.Employee;
@@ -21,7 +20,7 @@ public class EmployeeListAdapter extends ArrayAdapter<Employee> {
 		View view = convertView;
 		if (view == null) {
 			LayoutInflater inflater = LayoutInflater.from(this.getContext());
-			view = inflater.inflate(R.layout.list_view_item_product, parent, false);
+			view = inflater.inflate(R.layout.list_view_item_employee, parent, false);
 		}
 
 		Employee employee = this.getItem(position);
@@ -36,6 +35,6 @@ public class EmployeeListAdapter extends ArrayAdapter<Employee> {
 	}
 
 	public EmployeeListAdapter(Context context, List<Employee> employee) {
-		super(context, R.layout.list_view_item_employee, employees);
+		super(context, R.layout.list_view_item_employee, employee);
 	}
 }

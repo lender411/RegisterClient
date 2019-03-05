@@ -86,8 +86,8 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 	}
 
 	public Employee(EmployeeTransition employeeTransition) {
-		this.id = EmployeeTransition.getId();
-		this.createdOn = EmployeeTransition.getCreatedOn();
-		this.recordID = EmployeeTransition.getLookupCode();
+		this.id = employeeTransition.getId();
+		this.createdOn = employeeTransition.getCreatedOn();
+		this.recordID = employeeTransition.getRecordID();
 	}
 }

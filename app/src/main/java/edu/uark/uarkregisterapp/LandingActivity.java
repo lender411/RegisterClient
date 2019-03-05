@@ -15,18 +15,23 @@ public class LandingActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_landing);
 	}
 
-	public void displayAllEmployeesButtonOnClick(View view) {
-		this.startActivity(new Intent(getApplicationContext(), EmployeesListingActivity.class));
+	public void displayTransactionButtonOnClick(View view) {
+		this.startActivity(new Intent(getApplicationContext(), ProductsListingActivity.class));
 	}
 
-	public void createEmployeeButtonOnClick(View view) {
-		Intent intent = new Intent(getApplicationContext(), EmployeesViewActivity.class);
+	public void displayCreateEmployeeButtonOnClick(View view) {
+		this.startActivity(new Intent(getApplicationContext(), ProductsListingActivity.class));
+	}
+
+	public void SalesReportButtonOnClick(View view) {
+		Intent intent = new Intent(getApplicationContext(), ProductViewActivity.class);
 
 		intent.putExtra(
 			getString(R.string.intent_extra_product),
-			new EmployeeTransition()
+			new ProductTransition()
 		);
 
 		this.startActivity(intent);
 	}
 }
+//adding commit

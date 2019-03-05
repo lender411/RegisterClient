@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/content_product_view"
+    android:id="@+id/content_employee_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,55 +11,55 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.uark.uarkregisterapp.ProductViewActivity"
-    tools:showIn="@layout/activity_product_view">
+    tools:context="edu.uark.uarkregisterapp.EmployeeViewActivity"
+    tools:showIn="@layout/activity_employee_view">
 
     <TextView
-        android:id="@+id/text_view_product_lookup_code"
+        android:id="@+id/text_view_employee_recordID"
         android:text="@string/text_view_label_products_lookup_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/edit_text_product_lookup_code"
+        android:id="@+id/edit_text_employee_recordID"
         android:hint="@string/text_view_products_lookup_code"
         android:inputType="text"
-        android:layout_below="@+id/text_view_product_lookup_code"
+        android:layout_below="@+id/text_view_employee_recordID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"/>
 
     <TextView
-        android:id="@+id/text_view_product_count"
+        android:id="@+id/text_view_employee_count"
         android:text="@string/text_view_label_products_count"
-        android:layout_below="@+id/edit_text_product_lookup_code"
+        android:layout_below="@+id/edit_text_employee_recordID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:id="@+id/edit_text_product_count"
+        android:id="@+id/edit_text_employee_count"
         android:hint="@string/text_view_products_count"
         android:inputType="number"
-        android:layout_below="@+id/text_view_product_count"
+        android:layout_below="@+id/text_view_employee_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"/>
 
     <TextView
-        android:id="@+id/text_view_product_created_on"
+        android:id="@+id/text_view_employee_created_on"
         android:text="@string/text_view_label_products_created_on"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/edit_text_product_count"
+        android:layout_below="@+id/edit_text_employee_count"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:id="@+id/edit_text_product_created_on"
+        android:id="@+id/edit_text_employee_created_on"
         android:hint="@string/text_view_products_created_on"
         android:inputType="date"
         android:enabled="false"
-        android:layout_below="@+id/text_view_product_created_on"
+        android:layout_below="@+id/text_view_employee_created_on"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"/>

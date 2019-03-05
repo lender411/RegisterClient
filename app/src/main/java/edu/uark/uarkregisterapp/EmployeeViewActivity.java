@@ -54,12 +54,12 @@ public class EmployeeViewActivity extends AppCompatActivity {
 	protected void onResume() {
 		super.onResume();
 
-		if (!this.employeeTransition.getId().equals(new EmployeeID(0, 0))) {
+		if (!this.employeeTransition.getId().equals(new UUID(0, 0))) {
 			this.getDeleteImageButton().setVisibility(View.VISIBLE);
 		} else {
 			this.getDeleteImageButton().setVisibility(View.INVISIBLE);
 		}
-		this.getEmployeeLookupCodeEditText().setText(this.employeeTransition.getRecordID());
+		this.getEmployeeRecordIDEditText().setText(this.employeeTransition.getRecordID());
 		this.getEmployeeCreatedOnEditText().setText(
 			(new SimpleDateFormat("MM/dd/yyyy", Locale.US)).format(this.employeeTransition.getCreatedOn())
 		);
@@ -96,7 +96,7 @@ public class EmployeeViewActivity extends AppCompatActivity {
 			show();
 	}
 
-	private EditText getEmployeeLookupCodeEditText() {
+	private EditText getEmployeeRecordIDEditText() {
 		return (EditText) this.findViewById(R.id.edit_text_employee_recordID);
 	}
 
@@ -145,11 +145,11 @@ public class EmployeeViewActivity extends AppCompatActivity {
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			Employee employee = (new Employee()).
-				setEmployeeId(employeeTransition.getEmployeeId()).
-				setRecord(getEmployeeRecordIDEditText().getText().toString()).
+				setId(employeeTransition.getId()).
+				setRecordID(getEmployeeRecordIDEditText().getText().toString());
 
 			ApiResponse<Employee> apiResponse = (
-				(employee.getEmployeeId().equals(new EmployeeID(0, 0)))
+				(employee.getId().equals(new UUID(0, 0)))
 					? (new EmployeeService()).createEmployee(employee)
 					: (new EmployeeService()).updateEmployee(employee)
 			);
