@@ -154,7 +154,6 @@ public class EmployeeViewActivity extends AppCompatActivity {
 	}
 
 	private class SaveEmployeeTask extends AsyncTask<Void, Void, Boolean> {
-		private int RecordID = 1;
 		@Override
 		protected void onPreExecute() {
 			this.savingEmployeeAlert.show();
@@ -178,7 +177,7 @@ public class EmployeeViewActivity extends AppCompatActivity {
 			if (apiResponse.isValidResponse()) {
 				employeeTransition.setRecordID(apiResponse.getData().getRecordID());
 			}
-
+			//weekly update by nicholas brinkley
 			return apiResponse.isValidResponse();
 		}
 
